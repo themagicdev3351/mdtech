@@ -116,10 +116,6 @@ npm run build
 
 ```
 
-## Live Demo
+## Live Demo 
 
-```bash
-
-Live Demo: [MDTech](https://mdtech.vercel.app/signin)
-
-```
+Run On this port:  http://localhost:3000 
