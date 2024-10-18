@@ -10,6 +10,9 @@ export async function signup(formData: FormData) {
   const data = {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
+    options: {
+      emailRedirectTo: `${process.env.NEXT_PUBLIC_API_URL}/thankyou`,
+    },
   };
 
   const { error } = await supabase.auth.signUp(data);
