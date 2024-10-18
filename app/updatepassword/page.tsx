@@ -21,8 +21,7 @@ export default async function ForgotPasswordPage() {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
-        const code = new URLSearchParams(window.location.search).get("code");
-        console.log(code, 'code')
+        const code = new URLSearchParams(window.location.search).get("code"); 
 
         if (!code) {
             return toast.error('please try again code is missing')

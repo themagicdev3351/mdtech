@@ -58,11 +58,11 @@ export default async function SignInPage() {
             </Button>
           </div> */}
         </CardContent>
-        <CardFooter className="flex flex-row">
+        <CardFooter className="flex flex-col md:flex-row">
           <Link className="text-sm underline" href="/forgotpassword">
             Reset your password
           </Link>
-          <Link className="text-sm ml-auto underline" href="/signup">
+          <Link className="text-sm md:ml-auto underline" href="/signup">
             Don&apos;t have an account? Sign up here
           </Link>
         </CardFooter>

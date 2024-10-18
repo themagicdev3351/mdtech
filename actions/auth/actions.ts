@@ -30,14 +30,13 @@ export async function signin(formData: FormData) {
   };
 
   const { data: user, error } = await supabase.auth.signInWithPassword(data);
-  console.log(user);
 
   if (error) {
     throw new Error(error.message);
   }
 
-  revalidatePath("/", "layout");
-  redirect("/");
+  revalidatePath("/profile", "layout");
+  redirect("/profile");
 }
 
 export async function resetPassword(formData: FormData) {
