@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MDTech - Next.js Authentication Project
 
-## Getting Started
+This project is a simple authentication system built with Next.js, Tailwind CSS, Supabase, and TypeScript. It includes features like user login, registration, profile management, password reset, and updating passwords. The project also uses `react-hot-toast` for showing success and error messages.
 
-First, run the development server:
+Live Demo: [MDTech](https://mdtech.vercel.app/signin)
+
+## Table of Contents
+
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Installation Guide](#installation-guide)
+4. [Environment Variables](#environment-variables)
+5. [Available Pages](#available-pages)
+6. [Running the Project](#running-the-project)
+7. [Live Demo](#live-demo)
+
+## Features
+
+- User Registration and Login
+- Profile Page
+- Password Reset Page
+- Update Password Functionality
+- Authentication using Supabase
+- Toast notifications for success/error messages
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Hot Toast](https://react-hot-toast.com/)
+
+## Installation Guide
+
+Follow these steps to install and run the project locally:
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/mdtech.git
+cd mdtech
+
+npm install
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a .env.local file in the root of the project and add the following environment variables:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+NEXT_PUBLIC_SUPABASE_URL=<your-supabase-url>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>
+JWT_SECRET=<your-jwt-secret>
+NEXT_PUBLIC_API_URL=<your-api-url>
 
-## Learn More
+### 1. Configure Supabase
 
-To learn more about Next.js, take a look at the following resources:
+To use Supabase for authentication, create a Supabase project by visiting Supabase Dashboard.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Obtain the NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY from the Supabase Dashboard.
+Make sure to set up authentication in Supabase for email/password-based login.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 2. Tailwind CSS Setup
 
-## Deploy on Vercel
+Tailwind CSS is already configured in this project. You can find the configuration file in tailwind.config.js. To learn more about custom Tailwind configurations, visit the Tailwind CSS documentation.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Running the Project Locally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Once the environment variables are set and dependencies are installed, run the following command to start the development server:
+
+## Available Pages
+
+![](https://github.com/themagicdev3351/mdtech/tree/main/public/login.png)
+
+this is a login page
+
+![](https://github.com/themagicdev3351/mdtech/tree/main/public/signup.png)
+
+this is a signUp page
+
+![](https://github.com/themagicdev3351/mdtech/tree/main/public/forget.png)
+
+this is a forget page
+
+![](https://github.com/themagicdev3351/mdtech/tree/main/public/updatepassword.png)
+
+this is a updatepassword page
+
+![](https://github.com/themagicdev3351/mdtech/tree/main/public/error.png)
+
+this is a error page
+
+![](https://github.com/themagicdev3351/mdtech/tree/main/public/profile.png)
+
+this is a profile 
+
+when you are in profile page show profile email at in top click to open downdawn to logout your account.
+
+
+## Running the Project
+
+### 1. Running the Project Locally
+
+```bash
+npm run dev 
+
+```
+
+
+### 2. Building for Production
+
+```bash
+npm run build
+
+```
+
+## Live Demo
+
+```bash
+
+Live Demo: [MDTech](https://mdtech.vercel.app/signin)
+
+```
