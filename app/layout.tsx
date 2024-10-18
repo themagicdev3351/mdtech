@@ -18,11 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`min-h-[calc(100vh-74px)] ${inter.className}`}>
         <Header />
-        <main>{children}</main>
+        <main className="bg-gray-100">{children}</main>
         <Toaster
-          position="top-right"
+          position="top-center"
           toastOptions={{
             duration: 3000,
           }}

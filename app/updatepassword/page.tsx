@@ -1,6 +1,6 @@
+"use client";
+
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -12,18 +12,32 @@ import {
     Card,
 } from "@/components/ui/card";
 import { updatePassword } from "@/actions/auth/actions";
+import toast from "react-hot-toast";
 
 export default async function ForgotPasswordPage() {
-    const supabase = createClient();
-    const { data } = await supabase.auth.getUser();
 
-    if (data?.user) {
-        redirect("/");
-    }
+
+    const handleUpdatePassword = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.currentTarget);
+        const code = new URLSearchParams(window.location.search).get("code");
+        console.log(code, 'code')
+
+        if (!code) {
+            return toast.error('please try again code is missing')
+        }
+        try {
+            updatePassword(formData, code!);
+            toast.success('your password updated')
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center">
+        <main className="flex min-h-[calc(100vh-74px)] flex-col items-center justify-center">
             <Card className="w-full max-w-md">
                 <CardHeader>
                     <div className="flex flex-col items-center space-y-2">
@@ -34,7 +48,7 @@ export default async function ForgotPasswordPage() {
                     </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                    <form className="space-y-6">
+                    <form onSubmit={handleUpdatePassword} className="space-y-6">
                         <div className="space-y-2">
                             <Label htmlFor="password">Password</Label>
                             <Input id="password" name="password" required type="password" />
@@ -43,7 +57,7 @@ export default async function ForgotPasswordPage() {
                             <Label htmlFor="passwordConfirm">Confirm Password </Label>
                             <Input id="passwordConfirm" name="passwordConfirm" required type="password" />
                         </div>
-                        <Button formAction={updatePassword} className="w-full">Update Password</Button>
+                        <Button type="submit" className="w-full">Update Password</Button>
                     </form>
                     <Separator />
                     {/* <div className="space-y-4">

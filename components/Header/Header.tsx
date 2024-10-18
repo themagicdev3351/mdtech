@@ -1,10 +1,10 @@
 import React from 'react';
-import { createClient } from "@/utils/supabase/server";
+import { createServerSide } from "@/utils/supabase/server";
 import Link from 'next/link';
 import Navlinks from './Navlinks';
 
 const Header = async () => {
-    const supabase = createClient();
+    const supabase = createServerSide();
 
     const { data } = await supabase.auth.getUser();
 
