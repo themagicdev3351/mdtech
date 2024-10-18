@@ -116,6 +116,8 @@ npm run build
 
 ```
 
-## Live Demo 
+## Live Demo  
 
-Run On this port:  http://localhost:3000 
+To run the project locally, use the following URL:
+
+[http://localhost:3000](http://localhost:3000){:target="_blank"}
