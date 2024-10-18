@@ -69,33 +69,34 @@ Tailwind CSS is already configured in this project. You can find the configurati
 
 Once the environment variables are set and dependencies are installed, run the following command to start the development server:
 
+
 ## Available Pages
 
-![](https://github.com/themagicdev3351/mdtech/tree/main/public/login.png)
+![Login Page](https://raw.githubusercontent.com/themagicdev3351/mdtech/main/public/login.png)
 
-this is a login page
+This is the login page.
 
-![](https://github.com/themagicdev3351/mdtech/tree/main/public/signup.png)
+![Sign Up Page](https://raw.githubusercontent.com/themagicdev3351/mdtech/main/public/signup.png)
 
-this is a signUp page
+This is the sign-up page.
 
-![](https://github.com/themagicdev3351/mdtech/tree/main/public/forget.png)
+![Forget Page](https://raw.githubusercontent.com/themagicdev3351/mdtech/main/public/forget.png)
 
-this is a forget page
+This is the forget password page.
 
-![](https://github.com/themagicdev3351/mdtech/tree/main/public/updatepassword.png)
+![Update Password Page](https://raw.githubusercontent.com/themagicdev3351/mdtech/main/public/updatepassword.png)
 
-this is a updatepassword page
+This is the update password page.
 
-![](https://github.com/themagicdev3351/mdtech/tree/main/public/error.png)
+![Error Page](https://raw.githubusercontent.com/themagicdev3351/mdtech/main/public/error.png)
 
-this is a error page
+This is the error page.
 
-![](https://github.com/themagicdev3351/mdtech/tree/main/public/profile.png)
+![Profile Page](https://raw.githubusercontent.com/themagicdev3351/mdtech/main/public/profile.png)
 
-this is a profile 
+This is the profile page.
 
-when you are in profile page show profile email at in top click to open downdawn to logout your account.
+When you are on the profile page, your profile email will be displayed at the top. Clicking on it opens a dropdown to log out of your account.
 
 
 ## Running the Project
