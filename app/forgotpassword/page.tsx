@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
+import { createServerSide } from "@/utils/supabase/server";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -14,16 +14,16 @@ import {
 import { resetPassword } from "@/actions/auth/actions";
 
 export default async function UpdatePassword() {
-    const supabase = createClient();
+    const supabase = createServerSide();
     const { data } = await supabase.auth.getUser();
 
     if (data?.user) {
         redirect("/");
     }
-
+ 
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center">
+        <main className="flex min-h-[calc(100vh-74px)] flex-col items-center justify-center">
             <Card className="w-full max-w-md">
                 <CardHeader>
                     <div className="flex flex-col items-center space-y-2">

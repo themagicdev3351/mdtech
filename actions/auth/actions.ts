@@ -2,10 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
+import { createServerSide } from "@/utils/supabase/server";
 
 export async function signup(formData: FormData) {
-  const supabase = createClient();
+  const supabase = createServerSide();
 
   const data = {
     email: formData.get("email") as string,
@@ -22,14 +22,15 @@ export async function signup(formData: FormData) {
 }
 
 export async function signin(formData: FormData) {
-  const supabase = createClient();
+  const supabase = createServerSide();
 
   const data = {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
   };
 
-  const { error } = await supabase.auth.signInWithPassword(data);
+  const { data: user, error } = await supabase.auth.signInWithPassword(data);
+  console.log(user);
 
   if (error) {
     throw new Error(error.message);
@@ -40,7 +41,7 @@ export async function signin(formData: FormData) {
 }
 
 export async function resetPassword(formData: FormData) {
-  const supabase = createClient();
+  const supabase = createServerSide();
 
   const data = {
     email: formData.get("email") as string,
@@ -58,8 +59,8 @@ export async function resetPassword(formData: FormData) {
   redirect("/signin");
 }
 
-export async function updatePassword(formData: FormData) {
-  const supabase = createClient();
+export async function updatePassword(formData: FormData, code: string) {
+  const supabase = createServerSide();
 
   const password = String(formData.get("password")).trim();
   const passwordConfirm = String(formData.get("passwordConfirm")).trim();
@@ -67,9 +68,12 @@ export async function updatePassword(formData: FormData) {
   if (password !== passwordConfirm) {
     throw new Error("not match your password");
   }
+  const session = await supabase.auth.exchangeCodeForSession(code);
+  const { data: user } = await supabase.auth.getUser();
+  console.log(password, user, "password");
 
   const { error } = await supabase.auth.updateUser({
-    password,
+    password: password,
   });
 
   if (error) {
@@ -81,7 +85,7 @@ export async function updatePassword(formData: FormData) {
 }
 
 export async function signout() {
-  const supabase = createClient();
+  const supabase = createServerSide();
 
   let { error } = await supabase.auth.signOut();
 
