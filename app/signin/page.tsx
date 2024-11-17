@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { createServerSide } from "@/utils/supabase/server";
 import { signin } from "@/actions/auth/actions";
 
 import { Label } from "@/components/ui/label";
@@ -12,7 +11,8 @@ import {
   CardContent,
   CardFooter,
   Card,
-} from "@/components/ui/card";
+} from "@/components/ui/card"; 
+import { createServerSide } from "@/utils/supabase/server";
 
 export default async function SignInPage() {
   const supabase = createServerSide();
@@ -21,6 +21,20 @@ export default async function SignInPage() {
   if (data?.user) {
     redirect("/");
   }
+
+  // const signinWithGoogle = async () => {
+  //   const { data, error } = await supabase.auth.signInWithOAuth({
+  //     provider: 'google',
+  //     options: {
+  //       redirectTo: 'http://localhost:3000/profile',
+  //       queryParams: {
+  //         access_type: 'offline',
+  //         prompt: 'consent',
+  //       },
+  //     },
+  //   })
+
+  // }
 
   return (
     <main className="flex min-h-[calc(100vh-74px)] flex-col items-center justify-center">
@@ -50,6 +64,7 @@ export default async function SignInPage() {
               <Input id="password" name="password" required type="password" />
             </div>
             <Button formAction={signin} className="w-full">Sign in</Button>
+            {/* <Button onClick={signinWithGoogle} className="w-full">Google</Button> */}
           </form>
           <Separator />
           {/* <div className="space-y-4">
