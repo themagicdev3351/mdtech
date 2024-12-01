@@ -27,6 +27,9 @@ export default function RootLayout({
             duration: 3000,
           }}
         />
+
+
+        
       </body>
     </html>
   );
