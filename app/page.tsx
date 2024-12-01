@@ -17,7 +17,7 @@ export default async function Home() {
         {
           data.user.email
         }
-        new
+        main
       </div>
     </main>
   );
