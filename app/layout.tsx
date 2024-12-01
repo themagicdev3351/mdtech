@@ -21,6 +21,8 @@ export default function RootLayout({
       <body className={`min-h-[calc(100vh-74px)] ${inter.className}`}>
         <Header />
         <main className="bg-gray-100">{children}</main>
+
+        
         <Toaster
           position="top-center"
           toastOptions={{
