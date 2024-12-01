@@ -16,7 +16,7 @@ export default function Error({
         <div>
           <AlertCircleIcon className="mx-auto h-12 w-auto text-red-500" />
           <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-            Oops! Something went wrong. tttt
+            Oops! Something went wrong. vishal
           </h2>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
             Error: {error.message}
